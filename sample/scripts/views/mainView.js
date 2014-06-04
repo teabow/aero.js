@@ -4,7 +4,7 @@
     window.app = window.app || {};
     window.app.views = window.app.views || {};
 
-    window.app.views.main = aero.view.extend ({
+    window.app.views.main = window.aero.view.extend ({
 
         template: 'main.html',
 
