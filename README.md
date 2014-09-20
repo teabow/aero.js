@@ -1,4 +1,4 @@
-aero.js (v0.2)
+aero.js (v0.2-alpha)
 ==============
 
 Ultra lightweight Javascript MVC framework.
