@@ -1,7 +1,7 @@
 aero.js (v0.2-alpha)
 ====================
 
-<img src="http://thibaud.bourgeois.free.fr/aerojs/img/aerojs.png" alt="aero.js" height="200px"/>
+<img src="http://thibaud.bourgeois.free.fr/aerojs/img/aerojs.png" alt="aero.js" height="120px"/>
 
 Ultra lightweight Javascript MVC framework.
 
