@@ -35,8 +35,6 @@
 
         templates: {},
 
-        dir: 'templates/',
-
         get: function (name, callback) {
 
             var template = this.templates[name];
@@ -46,7 +44,7 @@
             }
             else {
                 var self = this;
-                $.get(self.dir + name, function (template) {
+                $.get(name, function (template) {
                     self.templates[name] = template;
                     if (callback) {
                         callback(template);
@@ -54,7 +52,6 @@
                 });
             }
         }
-
     };
 
     // Controller
@@ -76,6 +73,15 @@
     Controller.prototype.init = function (views) {
         this.views = views;
         this.first = true;
+        return this;
+    };
+
+    Controller.prototype.preload = function () {
+        for (var i = 0; i < this.views.length; i++) {
+            if (this.views[i].ref.template) {
+                window.aero.templateManager.get(this.views[i].ref.template);
+            }
+        }
     };
 
     Controller.prototype.showView = function (viewName, data, noHistory) {

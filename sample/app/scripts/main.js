@@ -16,7 +16,7 @@
         }
     ];
 
-    window.aero.controller.init(views);
+    window.aero.controller.init(views).preload();
     window.aero.controller.showView('main');
 
 })();

@@ -6,7 +6,7 @@
 
     window.app.views.third = window.aero.view.extend ({
 
-        template: 'third.html',
+        template: 'templates/third.html',
 
         container: '#content',
 

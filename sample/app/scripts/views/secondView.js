@@ -6,7 +6,7 @@
 
     window.app.views.second = window.aero.view.extend ({
 
-        template: 'second.html',
+        template: 'templates/second.html',
 
         container: '#content',
 

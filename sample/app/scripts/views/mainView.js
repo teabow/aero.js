@@ -6,7 +6,7 @@
 
     window.app.views.main = window.aero.view.extend ({
 
-        template: 'main.html',
+        template: 'templates/main.html',
 
         container: '#content',
 
