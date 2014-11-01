@@ -7,3 +7,5 @@ aero.js (0.4.0 alpha)
 
 Current version is Alpha.
 Improvements to come on events.
+<br/><br/>
+To see how it works just run the sample. Documentation coming soon.
