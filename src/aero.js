@@ -75,9 +75,10 @@
 
     Controller.prototype.init = function (views) {
         this.views = views;
+        this.first = true;
     };
 
-    Controller.prototype.showView = function (viewName, data) {
+    Controller.prototype.showView = function (viewName, data, noHistory) {
         var view = null;
         for (var i = 0; i < this.views.length; i++) {
             if (this.views[i].name === viewName) {
@@ -85,6 +86,17 @@
                 break;
             }
         }
+
+        if (!noHistory) {
+            if (this.first) {
+                window.history.replaceState({name: viewName, data: data}, viewName, '/#/' + viewName);
+                this.first = false;
+            }
+            else {
+                window.history.pushState({name: viewName, data: data}, viewName, '/#/' + viewName);
+            }
+        }
+
         if (view.ref.template) {
             window.aero.templateManager.get(view.ref.template, function (template) {
                 $(view.ref.container).html(_.template(template, data));
@@ -96,5 +108,11 @@
         }
     };
     window.aero.controller = new Controller();
+
+    window.onpopstate = function (event) {
+        if (event.state && event.state.name) {
+            window.aero.controller.showView(event.state.name, event.state.data, true);
+        }
+    };
 
 })();

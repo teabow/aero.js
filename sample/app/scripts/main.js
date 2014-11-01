@@ -9,6 +9,10 @@
         {
             name: 'second',
             ref: window.app.views.second
+        },
+        {
+            name: 'third',
+            ref: window.app.views.third
         }
     ];
 

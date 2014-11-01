@@ -10,7 +10,13 @@
 
         container: '#content',
 
-        init: function () {}
+        init: function () {
+            this.addEvent('click button.btnThirdPage', this.btnThirdPageHandler);
+        },
+
+        btnThirdPageHandler: function () {
+            window.aero.controller.showView('third');
+        }
 
     });
 
