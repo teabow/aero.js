@@ -63,6 +63,21 @@ window.app.views.main = window.aero.view.extend ({
 
 });
 </code></pre>
+
+<hr>
+
+<p>Register the view in aero controller and show it to the browser</p>
+
+<pre><code>var views = [
+    {
+        name: 'main',
+        ref: window.app.views.main
+    }
+];
+
+window.aero.controller.init(views).preload();
+window.aero.controller.showView('main');
+</code></pre>
       </section>
       <footer>
         <p>This project is maintained by <a href="https://github.com/teabow">teabow</a></p>
