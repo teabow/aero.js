@@ -1,38 +1,37 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
-    <meta charset='utf-8'>
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
-
     <title>Aero.js by teabow</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
   </head>
-
   <body>
-
-    <header>
-      <div class="container">
+    <div class="wrapper">
+      <header>
         <h1>Aero.js</h1>
-        <h2>Minimalistic Javascript MVC library</h2>
+        <p>Minimalistic Javascript MVC library</p>
 
-        <section id="downloads">
-          <a href="https://github.com/teabow/aero.js/zipball/master" class="btn">Download as .zip</a>
-          <a href="https://github.com/teabow/aero.js/tarball/master" class="btn">Download as .tar.gz</a>
-          <a href="https://github.com/teabow/aero.js" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
-        </section>
-      </div>
-    </header>
+        <p class="view"><a href="https://github.com/teabow/aero.js">View the Project on GitHub <small>teabow/aero.js</small></a></p>
 
-    <div class="container">
-      <section id="main_content">
+
+        <ul>
+          <li><a href="https://github.com/teabow/aero.js/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/teabow/aero.js/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/teabow/aero.js">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
         <p><img src="http://thibaud.bourgeois.free.fr/aerojs/img/aerojs.png" alt="aero.js"></p>
 
-<blockquote>
-<p>Getting started</p>
-</blockquote>
+<h1>
+<a name="getting-started" class="anchor" href="#getting-started"><span class="octicon octicon-link"></span></a>Getting started</h1>
 
 <p>Include aero.js and its dependencies (zepto.js and lodash.js) to your index.html file</p>
 
@@ -40,9 +39,37 @@
 &lt;script src="path/to/lodash.js"&gt;&lt;/script&gt;
 &lt;script src="path/to/aero.js"&gt;&lt;/script&gt;
 </code></pre>
-      </section>
-    </div>
 
+<hr>
+
+<p>Then you can create an aero view</p>
+
+<pre><code>window.app = window.app || {};
+window.app.views = window.app.views || {};
+
+window.app.views.main = window.aero.view.extend ({
+
+    template: 'templates/main.html',
+
+    container: '#content',
+
+    init: function () {
+        this.addEvent('click button.hiBtn', this.hiBtnHandler);
+    },
+
+    hiBtnHandler: function () {
+        window.alert('Hi');
+    }
+
+});
+</code></pre>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/teabow">teabow</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
     
   </body>
 </html>
