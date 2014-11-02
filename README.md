@@ -7,4 +7,5 @@ aero.js (0.5.0 alpha)
 
 Current version is Alpha.
 <br/><br/>
-To see how it works just run the sample. Documentation coming soon.
+To see how it works just run the sample. 
+You can find documentation <a href="http://teabow.github.io/aero.js">here</a>.
