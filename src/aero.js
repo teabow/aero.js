@@ -1,3 +1,10 @@
+//     Aero.js 0.5.0
+
+//     (c) 2014 Thibaud Bourgeois
+//     Aero.js may be freely distributed under the MIT license.
+//     For documentation:
+//     http://teabow.github.io/aero.js/
+
 (function () {
 
     window.aero = window.aero || {};
