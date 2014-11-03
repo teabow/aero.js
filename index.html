@@ -46,25 +46,25 @@
 <h3>
 <a name="then-you-can-create-an-aero-view" class="anchor" href="#then-you-can-create-an-aero-view"><span class="octicon octicon-link"></span></a>Then you can create an aero view</h3>
 
-<pre><code>window.app = window.app || {};
-window.app.views = window.app.views || {};
+<div class="highlight highlight-javascript"><pre><span class="nb">window</span><span class="p">.</span><span class="nx">app</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">app</span> <span class="o">||</span> <span class="p">{};</span>
+<span class="nb">window</span><span class="p">.</span><span class="nx">app</span><span class="p">.</span><span class="nx">views</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">app</span><span class="p">.</span><span class="nx">views</span> <span class="o">||</span> <span class="p">{};</span>
 
-window.app.views.main = window.aero.view.extend ({
+<span class="nb">window</span><span class="p">.</span><span class="nx">app</span><span class="p">.</span><span class="nx">views</span><span class="p">.</span><span class="nx">main</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">aero</span><span class="p">.</span><span class="nx">view</span><span class="p">.</span><span class="nx">extend</span> <span class="p">({</span>
 
-    template: 'templates/main.html',
+    <span class="nx">template</span><span class="o">:</span> <span class="s1">'templates/main.html'</span><span class="p">,</span>
 
-    container: '#content',
+    <span class="nx">container</span><span class="o">:</span> <span class="s1">'#content'</span><span class="p">,</span>
 
-    init: function () {
-        this.addEvent('click button.hiBtn', this.hiBtnHandler);
-    },
+    <span class="nx">init</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">addEvent</span><span class="p">(</span><span class="s1">'click button.hiBtn'</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">hiBtnHandler</span><span class="p">);</span>
+    <span class="p">},</span>
 
-    hiBtnHandler: function () {
-        window.alert('Hi');
-    }
+    <span class="nx">hiBtnHandler</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="nb">window</span><span class="p">.</span><span class="nx">alert</span><span class="p">(</span><span class="s1">'Hi'</span><span class="p">);</span>
+    <span class="p">}</span>
 
-});
-</code></pre>
+<span class="p">});</span>
+</pre></div>
 
 <blockquote>
 <p>The template will be later injected into the container element</p>
@@ -75,15 +75,15 @@ window.app.views.main = window.aero.view.extend ({
 <h3>
 <a name="register-the-view-in-aero-controller" class="anchor" href="#register-the-view-in-aero-controller"><span class="octicon octicon-link"></span></a>Register the view in aero controller</h3>
 
-<pre><code>var views = [
-    {
-        name: 'main',
-        ref: window.app.views.main
-    }
-];
+<div class="highlight highlight-javascript"><pre><span class="kd">var</span> <span class="nx">views</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span>
+        <span class="nx">name</span><span class="o">:</span> <span class="s1">'main'</span><span class="p">,</span>
+        <span class="nx">ref</span><span class="o">:</span> <span class="nb">window</span><span class="p">.</span><span class="nx">app</span><span class="p">.</span><span class="nx">views</span><span class="p">.</span><span class="nx">main</span>
+    <span class="p">}</span>
+<span class="p">];</span>
 
-window.aero.controller.init(views).preload();
-</code></pre>
+<span class="nb">window</span><span class="p">.</span><span class="nx">aero</span><span class="p">.</span><span class="nx">controller</span><span class="p">.</span><span class="nx">init</span><span class="p">(</span><span class="nx">views</span><span class="p">).</span><span class="nx">preload</span><span class="p">();</span>
+</pre></div>
 
 <blockquote>
 <p>Once initialized you can indicate to the controller to preload templates</p>
@@ -94,8 +94,8 @@ window.aero.controller.init(views).preload();
 <h3>
 <a name="finally-show-the-view-to-the-browser" class="anchor" href="#finally-show-the-view-to-the-browser"><span class="octicon octicon-link"></span></a>Finally, show the view to the browser</h3>
 
-<pre><code>window.aero.controller.showView('main');
-</code></pre>
+<div class="highlight highlight-javascript"><pre><span class="nb">window</span><span class="p">.</span><span class="nx">aero</span><span class="p">.</span><span class="nx">controller</span><span class="p">.</span><span class="nx">showView</span><span class="p">(</span><span class="s1">'main'</span><span class="p">);</span>
+</pre></div>
 
 <blockquote>
 <p>You can pass a second parameter (a json object) to the showView function. Then use the &lt;%=key%&gt; notation to use passed data in your associated template</p>
