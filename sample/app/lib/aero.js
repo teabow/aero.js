@@ -1,3 +1,10 @@
+//     Aero.js 0.5.0
+
+//     (c) 2014 Thibaud Bourgeois
+//     Aero.js may be freely distributed under the MIT license.
+//     For documentation please refer to :
+//     http://teabow.github.io/aero.js/
+
 (function () {
 
     window.aero = window.aero || {};
@@ -6,7 +13,6 @@
 
         addEvent: function (key, funct) {
             var self = this;
-            var splitKey = key.split(' ');
             var event = null, element = null;
             var sepIndex = key.indexOf(' ');
             if (sepIndex > 0) {
@@ -14,17 +20,20 @@
                 element = key.substr(sepIndex + 1);
                 this.removeEvent(key);
                 $(element).on(event, function (e) {
-                    funct(self, e.currentTarget);
+                    funct.call(self, e.currentTarget);
                     return false;
                 });
             }
         },
 
         removeEvent: function (key) {
-            var splitKey = key.split(' ');
-            var event = splitKey[0];
-            var element = splitKey[1];
-            $(element).off(event);
+            var event = null, element = null;
+            var sepIndex = key.indexOf(' ');
+            if (sepIndex > 0) {
+                event = key.substr(0, sepIndex);
+                element = key.substr(sepIndex + 1);
+                $(element).off(event);
+            }
         },
 
         extend: function (data) {
