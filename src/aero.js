@@ -2,7 +2,7 @@
 
 //     (c) 2014 Thibaud Bourgeois
 //     Aero.js may be freely distributed under the MIT license.
-//     For documentation please refer to :
+//     For documentation please refer to:
 //     http://teabow.github.io/aero.js/
 
 (function () {
