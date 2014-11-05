@@ -11,29 +11,12 @@
         container: '#content',
 
         init: function (data) {
-            this.addEvent('click button.btnHiTo', this.btnHiToHandler);
-            this.addEvent('click button.btnHiTony', this.btnHiTonyHandler);
+            this.addEvent('click button.btnHi', this.btnHiHandler);
             this.addEvent('click button.btnSecondPage', this.btnSecondPageHandler);
-
-            this.observables.user = {name: 'everyone'};
-            this.observables.others = [
-                {
-                    name: 'Lebron'
-                },
-                {
-                    name: 'Kobe'
-                }
-            ]
         },
 
-        btnHiToHandler: function () {
-            this.observables.user.name = this.observables.userName.value;
-            this.observables.others.push({name: this.observables.user.name});
-        },
-
-        btnHiTonyHandler: function () {
-            this.observables.user.name = 'Tony';
-            this.observables.others.push({name: this.observables.user.name});
+        btnHiHandler: function () {
+            window.alert('Hi');
         },
 
         btnSecondPageHandler: function () {

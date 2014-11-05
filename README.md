@@ -1,4 +1,4 @@
-aero.js (0.6.0 alpha)
+aero.js (0.7.0 alpha)
 ====================
 
 <img src="http://thibaud.bourgeois.free.fr/aerojs/img/aerojs.png" alt="aero.js" height="100px"/>
