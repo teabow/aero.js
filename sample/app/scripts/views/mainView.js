@@ -10,13 +10,30 @@
 
         container: '#content',
 
-        init: function () {
-            this.addEvent('click button.btnHi', this.btnHiHandler);
+        init: function (data) {
+            this.addEvent('click button.btnHiTo', this.btnHiToHandler);
+            this.addEvent('click button.btnHiTony', this.btnHiTonyHandler);
             this.addEvent('click button.btnSecondPage', this.btnSecondPageHandler);
+
+            this.observables.user = data;
+            this.observables.others = [
+                {
+                    name: 'Lebron'
+                },
+                {
+                    name: 'Kobe'
+                }
+            ]
         },
 
-        btnHiHandler: function () {
-            window.alert('Hi');
+        btnHiToHandler: function () {
+            this.observables.user.name = this.observables.userName.value;
+            this.observables.others.push({name: this.observables.user.name});
+        },
+
+        btnHiTonyHandler: function () {
+            this.observables.user.name = 'Tony';
+            this.observables.others.push({name: this.observables.user.name});
         },
 
         btnSecondPageHandler: function () {

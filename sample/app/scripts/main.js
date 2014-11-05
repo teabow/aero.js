@@ -17,6 +17,6 @@
     ];
 
     window.aero.controller.init(views).preload();
-    window.aero.controller.showView('main');
+    window.aero.controller.showView('main', {name: 'Bobby'});
 
 })();
