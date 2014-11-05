@@ -1,6 +1,6 @@
 {
   "name": "aero.js",
-  "version": "0.5.0",
+  "version": "0.7.0",
   "main": "scripts/main.js",
   "devDependencies": {
     "gulp": "~3.8",
