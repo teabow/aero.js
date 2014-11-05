@@ -15,7 +15,7 @@
             this.addEvent('click button.btnHiTony', this.btnHiTonyHandler);
             this.addEvent('click button.btnSecondPage', this.btnSecondPageHandler);
 
-            this.observables.user = data;
+            this.observables.user = {name: 'everyone'};
             this.observables.others = [
                 {
                     name: 'Lebron'

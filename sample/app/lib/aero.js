@@ -11,11 +11,9 @@
 
 
     /** Observables **/
-    //window.aero.observables = {};
     var _initObservables = null;
     if (Object.observe) {
         var registerObservable = function (name, obs) {
-            // TO DO Array.observe data-observable-array="arrayName" data-observable-template="template"
             if (_.isArray(obs)) {
                 var count = 0;
                 var updateArray = function () {
@@ -30,23 +28,28 @@
                     });
                 };
                 updateArray();
-
                 Array.observe(obs, function (changeRecords) {
                     count++;
                     updateArray();
                 });
             }
             else if (_.isObject(obs)) {
+                var updateValue = function (type, nameValue, oldValue, value) {
+                    if (type === 'update') {
+                        if (obs._type && obs._type === 'input') {
+                            $('*[data-observable-input]').val(value);
+                        }
+                        else if (oldValue !== value) {
+                            $('*[data-observable-value="' + name + '.' + nameValue + '"]').html(value);
+                        }
+                    }
+                };
+                for (var key in obs) {
+                    updateValue('update', key, '', obs[key]);
+                }
                 Object.observe(obs, function (changes) {
                     changes.forEach(function (change) {
-                        if (change.type === 'update') {
-                            if (obs._type && obs._type === 'input') {
-                                $('*[data-observable-input]').val(change.object[change.name]);
-                            }
-                            else if (change.oldValue !== change.object[change.name]) {
-                                $('*[data-observable-value="' + name + '.' + change.name + '"]').html(change.object[change.name]);
-                            }
-                        }
+                        updateValue(change.type, change.name, change.oldValue, change.object[change.name]);
                     });
                 });
             }
@@ -70,8 +73,8 @@
                 });
             });
         }
-        /** End Observables **/
     }
+    /** End Observables **/
 
     window.aero.view = {
 
