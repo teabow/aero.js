@@ -128,9 +128,7 @@
 
 <p>Finally, you can get and set the name property of user object through this variable</p>
 
-<pre><code>javascript
-this.observables.user.name
-</code></pre>
+<div class="highlight highlight-javascript"><pre><span class="nb">this</span>.observables.user.<span class="no">name</span></pre></div>
 
 <h3>
 <a id="array-binding" class="anchor" href="#array-binding" aria-hidden="true"><span class="octicon octicon-link"></span></a>Array binding</h3>
@@ -148,7 +146,8 @@ this.observables.user.name
 
 <p>Then add the <code>data-observable-array</code> attribute to your element which value should be the name of your array variable (here <code>others</code>), you can specify the template you want to use for every array iteration thanks to the <code>data-observable-template</code> attribute</p>
 
-<div class="highlight highlight-html"><pre>&lt;<span class="nt">ul</span> <span class="na">data-observable-array</span>=<span class="s2">"others"</span> <span class="na">data-observable-template</span>=<span class="s2">"templates/user.html"</span>&gt;&lt;/<span class="nt">ul</span>&gt;</pre></div>
+<div class="highlight highlight-html"><pre>&lt;<span class="nt">ul</span> <span class="na">data-observable-array</span>=<span class="s2">"others"</span> 
+data<span class="na">-observable-template</span>=<span class="s2">"templates/user.html"</span>&gt;&lt;/<span class="nt">ul</span>&gt;</pre></div>
 
 <blockquote>
 <p>All the data you want to observe should be register in the <code>observables</code> object of the related aero view.</p>
