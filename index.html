@@ -31,15 +31,14 @@
         <p><img src="http://thibaud.bourgeois.free.fr/aerojs/img/aerojs.png" alt="aero.js"></p>
 
 <h1>
-<a name="getting-started" class="anchor" href="#getting-started"><span class="octicon octicon-link"></span></a>Getting started</h1>
+<a id="getting-started" class="anchor" href="#getting-started" aria-hidden="true"><span class="octicon octicon-link"></span></a>Getting started</h1>
 
 <h3>
-<a name="include-aerojs-and-its-dependencies-zeptojs-and-lodashjs-to-your-indexhtml-file" class="anchor" href="#include-aerojs-and-its-dependencies-zeptojs-and-lodashjs-to-your-indexhtml-file"><span class="octicon octicon-link"></span></a>Include aero.js and its dependencies (zepto.js and lodash.js) to your index.html file</h3>
+<a id="include-aerojs-and-its-dependencies-zeptojs-and-lodashjs-to-your-indexhtml-file" class="anchor" href="#include-aerojs-and-its-dependencies-zeptojs-and-lodashjs-to-your-indexhtml-file" aria-hidden="true"><span class="octicon octicon-link"></span></a>Include aero.js and its dependencies (zepto.js and lodash.js) to your index.html file</h3>
 
-<div class="highlight highlight-html"><pre><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"path/to/zepto.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
-<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"path/to/lodash.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
-<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"path/to/aero.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
-</pre></div>
+<div class="highlight highlight-html"><pre>&lt;<span class="nt">script</span> <span class="na">src</span>=<span class="s2">"path/to/zepto.js"</span>&gt;&lt;/<span class="nt">script</span>&gt;
+&lt;<span class="nt">script</span> <span class="na">src</span>=<span class="s2">"path/to/lodash.js"</span>&gt;&lt;/<span class="nt">script</span>&gt;
+&lt;<span class="nt">script</span> <span class="na">src</span>=<span class="s2">"path/to/aero.js"</span>&gt;&lt;/<span class="nt">script</span>&gt;</pre></div>
 
 <blockquote>
 <p>You can run <code>bower install aero.js</code> to retrieve these files</p>
@@ -48,27 +47,26 @@
 </blockquote>
 
 <h3>
-<a name="then-you-can-create-an-aero-view" class="anchor" href="#then-you-can-create-an-aero-view"><span class="octicon octicon-link"></span></a>Then you can create an aero view</h3>
+<a id="then-you-can-create-an-aero-view" class="anchor" href="#then-you-can-create-an-aero-view" aria-hidden="true"><span class="octicon octicon-link"></span></a>Then you can create an aero view</h3>
 
-<div class="highlight highlight-javascript"><pre><span class="nb">window</span><span class="p">.</span><span class="nx">app</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">app</span> <span class="o">||</span> <span class="p">{};</span>
-<span class="nb">window</span><span class="p">.</span><span class="nx">app</span><span class="p">.</span><span class="nx">views</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">app</span><span class="p">.</span><span class="nx">views</span> <span class="o">||</span> <span class="p">{};</span>
+<div class="highlight highlight-javascript"><pre><span class="no">window</span>.app <span class="o">=</span> <span class="no">window</span>.app <span class="o">||</span> {};
+<span class="no">window</span>.app.views <span class="o">=</span> <span class="no">window</span>.app.views <span class="o">||</span> {};
 
-<span class="nb">window</span><span class="p">.</span><span class="nx">app</span><span class="p">.</span><span class="nx">views</span><span class="p">.</span><span class="nx">main</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">aero</span><span class="p">.</span><span class="nx">view</span><span class="p">.</span><span class="nx">extend</span> <span class="p">({</span>
+<span class="no">window</span>.app.views.main <span class="o">=</span> <span class="no">window</span>.aero.view.extend ({
 
-    <span class="nx">template</span><span class="o">:</span> <span class="s1">'templates/main.html'</span><span class="p">,</span>
+    template<span class="o">:</span> <span class="s1">'templates/main.html'</span>,
 
-    <span class="nx">container</span><span class="o">:</span> <span class="s1">'#content'</span><span class="p">,</span>
+    container<span class="o">:</span> <span class="s1">'#content'</span>,
 
-    <span class="nx">init</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">addEvent</span><span class="p">(</span><span class="s1">'click button.hiBtn'</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">hiBtnHandler</span><span class="p">);</span>
-    <span class="p">},</span>
+    <span class="nf">init</span>: <span class="kt">function</span> () {
+        <span class="nb">this</span>.addEvent(<span class="s1">'click button.hiBtn'</span>, <span class="nb">this</span>.hiBtnHandler);
+    },
 
-    <span class="nx">hiBtnHandler</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-        <span class="nb">window</span><span class="p">.</span><span class="nx">alert</span><span class="p">(</span><span class="s1">'Hi'</span><span class="p">);</span>
-    <span class="p">}</span>
+    <span class="nf">hiBtnHandler</span>: <span class="kt">function</span> () {
+        <span class="no">window</span>.<span class="nf">alert</span>(<span class="s1">'Hi'</span>);
+    }
 
-<span class="p">});</span>
-</pre></div>
+});</pre></div>
 
 <blockquote>
 <p>The template will be later injected into the container element</p>
@@ -77,17 +75,16 @@
 </blockquote>
 
 <h3>
-<a name="register-the-view-in-aero-controller" class="anchor" href="#register-the-view-in-aero-controller"><span class="octicon octicon-link"></span></a>Register the view in aero controller</h3>
+<a id="register-the-view-in-aero-controller" class="anchor" href="#register-the-view-in-aero-controller" aria-hidden="true"><span class="octicon octicon-link"></span></a>Register the view in aero controller</h3>
 
-<div class="highlight highlight-javascript"><pre><span class="kd">var</span> <span class="nx">views</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="p">{</span>
-        <span class="nx">name</span><span class="o">:</span> <span class="s1">'main'</span><span class="p">,</span>
-        <span class="nx">ref</span><span class="o">:</span> <span class="nb">window</span><span class="p">.</span><span class="nx">app</span><span class="p">.</span><span class="nx">views</span><span class="p">.</span><span class="nx">main</span>
-    <span class="p">}</span>
-<span class="p">];</span>
+<div class="highlight highlight-javascript"><pre><span class="k">var</span> views <span class="o">=</span> [
+    {
+        name<span class="o">:</span> <span class="s1">'main'</span>,
+        ref<span class="o">:</span> <span class="no">window</span>.app.views.main
+    }
+];
 
-<span class="nb">window</span><span class="p">.</span><span class="nx">aero</span><span class="p">.</span><span class="nx">controller</span><span class="p">.</span><span class="nx">init</span><span class="p">(</span><span class="nx">views</span><span class="p">).</span><span class="nx">preload</span><span class="p">();</span>
-</pre></div>
+<span class="no">window</span>.aero.controller.init(views).preload();</pre></div>
 
 <blockquote>
 <p>Once initialized you can indicate to the controller to preload templates</p>
@@ -96,13 +93,65 @@
 </blockquote>
 
 <h3>
-<a name="finally-show-the-view-to-the-browser" class="anchor" href="#finally-show-the-view-to-the-browser"><span class="octicon octicon-link"></span></a>Finally, show the view to the browser</h3>
+<a id="finally-show-the-view-to-the-browser" class="anchor" href="#finally-show-the-view-to-the-browser" aria-hidden="true"><span class="octicon octicon-link"></span></a>Finally, show the view to the browser</h3>
 
-<div class="highlight highlight-javascript"><pre><span class="nb">window</span><span class="p">.</span><span class="nx">aero</span><span class="p">.</span><span class="nx">controller</span><span class="p">.</span><span class="nx">showView</span><span class="p">(</span><span class="s1">'main'</span><span class="p">);</span>
-</pre></div>
+<div class="highlight highlight-javascript"><pre><span class="no">window</span>.aero.controller.showView(<span class="s1">'main'</span>);</pre></div>
 
 <blockquote>
 <p>You can pass a second parameter (a json object) to the showView function. Then use the &lt;%=key%&gt; notation to use passed data in your associated template</p>
+</blockquote>
+
+<h1>
+<a id="data-binding-extension" class="anchor" href="#data-binding-extension" aria-hidden="true"><span class="octicon octicon-link"></span></a>Data binding extension</h1>
+
+<h3>
+<a id="input-binding" class="anchor" href="#input-binding" aria-hidden="true"><span class="octicon octicon-link"></span></a>Input binding</h3>
+
+<p>In your template add the <code>data-observable-input</code> attribute to the input you want to observe</p>
+
+<div class="highlight highlight-html"><pre>&lt;<span class="nt">input</span> <span class="na">type</span>=<span class="s2">"text"</span> <span class="na">name</span>=<span class="s2">"userName"</span> <span class="na">data-observable-input</span>&gt;</pre></div>
+
+<p>Then in your aero view, you can get and set the input value through this variable</p>
+
+<div class="highlight highlight-javascript"><pre><span class="nb">this</span>.observables.userName.<span class="no">value</span></pre></div>
+
+<h3>
+<a id="value-binding" class="anchor" href="#value-binding" aria-hidden="true"><span class="octicon octicon-link"></span></a>Value binding</h3>
+
+<p>First create an object with the value you want to observe (here name)</p>
+
+<div class="highlight highlight-javascript"><pre><span class="nb">this</span>.observables.user <span class="o">=</span> {name<span class="o">:</span> <span class="s1">'everyone'</span>};</pre></div>
+
+<p>Then in your template, add to your html element the <code>data-observable-value</code> attribute which value should be <code>"user.name"</code></p>
+
+<div class="highlight highlight-html"><pre>&lt;<span class="nt">span</span> <span class="na">data-observable-value</span>=<span class="s2">"user.name"</span>&gt;&lt;/<span class="nt">span</span>&gt;</pre></div>
+
+<p>Finally, you can get and set the name property of user object through this variable</p>
+
+<pre><code>javascript
+this.observables.user.name
+</code></pre>
+
+<h3>
+<a id="array-binding" class="anchor" href="#array-binding" aria-hidden="true"><span class="octicon octicon-link"></span></a>Array binding</h3>
+
+<p>Create an array in your aero view</p>
+
+<div class="highlight highlight-javascript"><pre><span class="nb">this</span>.observables.others <span class="o">=</span> [
+    {
+        name<span class="o">:</span> <span class="s1">'Lebron'</span>
+    },
+    {
+        name<span class="o">:</span> <span class="s1">'Kobe'</span>
+    }
+]</pre></div>
+
+<p>Then add the <code>data-observable-array</code> attribute to your element which value should be the name of your array variable (here <code>others</code>), you can specify the template you want to use for every array iteration thanks to the <code>data-observable-template</code> attribute</p>
+
+<div class="highlight highlight-html"><pre>&lt;<span class="nt">ul</span> <span class="na">data-observable-array</span>=<span class="s2">"others"</span> <span class="na">data-observable-template</span>=<span class="s2">"templates/user.html"</span>&gt;&lt;/<span class="nt">ul</span>&gt;</pre></div>
+
+<blockquote>
+<p>All the data you want to observe should be register in the <code>observables</code> object of the related aero view.</p>
 </blockquote>
       </section>
       <footer>
