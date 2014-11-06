@@ -5,8 +5,7 @@ aero.js (0.7.0 alpha)
 
 ###Minimalistic Javascript MVC library
 
-Current version is Alpha.
-<br/><br/>
+<br/>
 To see how it works just run the sample.
 You can find documentation <a href="http://teabow.github.io/aero.js">here</a>.
 <br>
