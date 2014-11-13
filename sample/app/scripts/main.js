@@ -7,6 +7,11 @@
             ref: window.app.views.main
         },
         {
+            name: 'mainSub',
+            ref: window.app.views.mainSub,
+            subView: true
+        },
+        {
             name: 'second',
             ref: window.app.views.second
         },

@@ -1,4 +1,4 @@
-//     Aero.js 0.7.0
+//     Aero.js 0.8.0
 
 //     (c) 2014 Thibaud Bourgeois
 //     Aero.js may be freely distributed under the MIT license.
@@ -9,6 +9,7 @@
 
     window.aero = window.aero || {};
 
+    // Aero view template
     window.aero.view = {
 
         addEvent: function (key, funct) {
@@ -106,7 +107,7 @@
             }
         }
 
-        if (window.history.pushState && !noHistory) {
+        if (window.history.pushState && !noHistory && !view.subView) {
             if (this.first) {
                 window.history.replaceState({name: viewName, data: data}, viewName, '/#/' + viewName);
                 this.first = false;

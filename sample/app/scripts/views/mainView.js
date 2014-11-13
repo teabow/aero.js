@@ -13,6 +13,7 @@
         init: function (data) {
             this.addEvent('click button.btnHi', this.btnHiHandler);
             this.addEvent('click button.btnSecondPage', this.btnSecondPageHandler);
+            window.aero.controller.showView('mainSub');
         },
 
         btnHiHandler: function () {
