@@ -3,7 +3,7 @@ aero.js (0.8.0 beta)
 
 <img src="http://thibaud.bourgeois.free.fr/aerojs/img/aerojs.png" alt="aero.js" height="100px"/>
 
-###Minimalistic Javascript MVC library
+###Minimalistic Javascript MVC library - Especially designed for mobile apps
 
 To see how it works just run the sample.
 You can find documentation <a href="http://teabow.github.io/aero.js">here</a>.
