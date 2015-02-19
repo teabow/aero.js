@@ -5,7 +5,7 @@ aero.js (0.8.0 beta)
 
 ###Minimalistic Javascript MVC library - Especially designed for mobile apps
 
-<b>You can use it with integretad template mechanism or a third party UI lib like React</b>
+<b>You can use it with integretad template mechanism or a third party UI library like React</b>
 
 To see how it works just run the sample.
 You can find documentation <a href="http://teabow.github.io/aero.js">here</a>.
