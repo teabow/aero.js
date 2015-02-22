@@ -1,17 +1,27 @@
-(function () {
-    'use strict';
+'use strict';
 
-    window.app = window.app || {};
-    window.app.views = window.app.views || {};
+var aero = require('aero.js');
+var React = require('react');
 
-    window.app.views.third = window.aero.view.extend ({
+var secondView = aero.view.extend ({
 
-        template: 'templates/third.html',
+    init: function () {
+        this.render();
+    },
 
-        container: '#content',
+    render: function () {
+        var View = React.createClass({
+            render: function () {
+                return (
+                    <main>
+                        <h1>Third view</h1>
+                    </main>
+                );
+            }
+        });
+        React.render(<View />, document.getElementById('content'));
+    }
 
-        init: function () {}
+});
 
-    });
-
-})();
+module.exports = secondView;

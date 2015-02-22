@@ -1,8 +1,9 @@
 'use strict';
 
-var aero = require('../lib/aero');
+var aero = require('aero.js');
 var mainView = require('./views/mainView');
 var secondView = require('./views/secondView');
+var thirdView = require('./views/thirdView');
 
 var views = [
     {
@@ -12,6 +13,10 @@ var views = [
     {
         name: 'second',
         ref: secondView
+    },
+    {
+        name: 'third',
+        ref: thirdView
     }
 ];
 
