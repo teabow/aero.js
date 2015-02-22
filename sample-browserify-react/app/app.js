@@ -30,6 +30,8 @@ aero.controller.showView('main');
 var $ = require('browserify-zepto');
 var _ = require('lodash');
 
+window.aero = window.aero || {};
+window.aero.views = window.aero.views || [];
 var aero = {};
 
 /**
@@ -186,8 +188,9 @@ function Controller() {
  * @returns {Controller}
  */
 Controller.prototype.init = function (views) {
-    this.views = views;
+    window.aero.views = views;
     this.first = true;
+    console.log('controller init', window.aero.views);
     return this;
 };
 
@@ -195,9 +198,9 @@ Controller.prototype.init = function (views) {
  * Preloads all registered views templates
  */
 Controller.prototype.preload = function () {
-    for (var i = 0; i < this.views.length; i++) {
-        if (this.views[i].ref.template) {
-            aero.templateManager.get(this.views[i].ref.template);
+    for (var i = 0; i < window.aero.views.length; i++) {
+        if (window.aero.views[i].ref.template) {
+            aero.templateManager.get(window.aero.views[i].ref.template);
         }
     }
 };
@@ -209,10 +212,13 @@ Controller.prototype.preload = function () {
  * @param noHistory true if view must not be registered in location.history
  */
 Controller.prototype.showView = function (viewName, data, noHistory) {
+
+    console.log(viewName, window.aero.views);
+
     var view = null;
-    for (var i = 0; i < this.views.length; i++) {
-        if (this.views[i].name === viewName) {
-            view = this.views[i];
+    for (var i = 0; i < window.aero.views.length; i++) {
+        if (window.aero.views[i].name === viewName) {
+            view = window.aero.views[i];
             break;
         }
     }
