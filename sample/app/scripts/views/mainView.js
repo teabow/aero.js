@@ -13,7 +13,19 @@
         init: function (data) {
             this.addEvent('click button.btnHi', this.btnHiHandler);
             this.addEvent('click button.btnSecondPage', this.btnSecondPageHandler);
+
+            // View injection
             window.aero.controller.showView('mainSub');
+
+            // Array injection
+            var array = [{name: 'item list 1'}, {name: 'item list 2'}, {name: 'item list 3'}];
+            this.renderArray('main ul', 'templates/mainList.html', array, function (element) {
+                element.name = 'Aero ' + element.name;
+            });
+
+            // Object injection
+            var author = {firstname: 'Thibaud', lastname: 'Bourgeois'};
+            this.render('footer', 'templates/mainFooter.html', author);
         },
 
         btnHiHandler: function () {

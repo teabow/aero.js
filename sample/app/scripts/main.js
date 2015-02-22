@@ -22,6 +22,6 @@
     ];
 
     window.aero.controller.init(views).preload();
-    window.aero.controller.showView('main');
+    window.aero.controller.showView('main', {title: 'Aero Main View'});
 
 })();
