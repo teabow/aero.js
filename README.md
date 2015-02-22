@@ -7,6 +7,10 @@ Aero.js (v1.0.1)
 
 <b>You can use it with integretad template mechanism or with a third party UI library like React</b>
 
+To install Aero.js :
+- bower install aero.js
+- npm install aero.js (commonJS module)
+
 To see how it works just run the samples.
 You can find documentation <a href="http://teabow.github.io/aero.js">here</a>.
 <br>
