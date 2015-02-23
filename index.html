@@ -31,7 +31,63 @@
         <p><img src="http://thibaud.bourgeois.free.fr/aerojs/img/aerojs.png" alt="aero.js"></p>
 
 <h1>
-<a id="getting-started" class="anchor" href="#getting-started" aria-hidden="true"><span class="octicon octicon-link"></span></a>Getting started</h1>
+<a id="getting-started-commonjs-aero-you-can-use-it-with-browserify" class="anchor" href="#getting-started-commonjs-aero-you-can-use-it-with-browserify" aria-hidden="true"><span class="octicon octicon-link"></span></a>Getting started (CommonJs aero). You can use it with Browserify.</h1>
+
+<h3>
+<a id="install-aerojs-via-npm" class="anchor" href="#install-aerojs-via-npm" aria-hidden="true"><span class="octicon octicon-link"></span></a>Install aero.js via npm</h3>
+
+<pre><code>npm install aero.js
+</code></pre>
+
+<h3>
+<a id="require-aerojs-and-then-you-can-create-an-aero-view" class="anchor" href="#require-aerojs-and-then-you-can-create-an-aero-view" aria-hidden="true"><span class="octicon octicon-link"></span></a>Require aero.js and then you can create an aero view</h3>
+
+<div class="highlight highlight-javascript"><pre><span class="pl-s">var</span> aero <span class="pl-k">=</span> <span class="pl-s3">require</span>(<span class="pl-s1"><span class="pl-pds">'</span>aero.js<span class="pl-pds">'</span></span>);
+<span class="pl-s">var</span> React <span class="pl-k">=</span> <span class="pl-s3">require</span>(<span class="pl-s1"><span class="pl-pds">'</span>react<span class="pl-pds">'</span></span>);
+
+<span class="pl-s">var</span> mainView <span class="pl-k">=</span> aero.view.extend ({
+
+    <span class="pl-en">init</span>: <span class="pl-st">function</span> () {
+        <span class="pl-v">this</span>.render();
+    },
+
+    <span class="pl-en">render</span>: <span class="pl-st">function</span> () {
+        <span class="pl-s">var</span> View <span class="pl-k">=</span> React.createClass({
+            <span class="pl-en">render</span>: <span class="pl-st">function</span>() {
+                <span class="pl-k">return</span> (
+                    <span class="pl-k">&lt;</span>main<span class="pl-k">&gt;</span>
+                        <span class="pl-k">&lt;</span>h1<span class="pl-k">&gt;</span>Main view <span class="pl-k">with</span> React<span class="pl-k">&lt;</span>/h1<span class="pl-k">&gt;</span>
+                    <span class="pl-k">&lt;</span>/main<span class="pl-k">&gt;</span>
+                );
+            }
+        });
+        React.render(<span class="pl-k">&lt;</span>View /<span class="pl-k">&gt;</span>, <span class="pl-s3">document</span>.<span class="pl-s3">getElementById</span>(<span class="pl-s1"><span class="pl-pds">'</span>content<span class="pl-pds">'</span></span>));
+    }
+});
+
+<span class="pl-sv">module</span>.exports <span class="pl-k">=</span> mainView;</pre></div>
+
+<h3>
+<a id="in-your-main-app-file-register-the-view-in-aero-controller" class="anchor" href="#in-your-main-app-file-register-the-view-in-aero-controller" aria-hidden="true"><span class="octicon octicon-link"></span></a>In your main app file, register the view in aero controller</h3>
+
+<div class="highlight highlight-javascript"><pre><span class="pl-s">var</span> aero <span class="pl-k">=</span> <span class="pl-s3">require</span>(<span class="pl-s1"><span class="pl-pds">'</span>aero.js<span class="pl-pds">'</span></span>);
+<span class="pl-s">var</span> mainView <span class="pl-k">=</span> <span class="pl-s3">require</span>(<span class="pl-s1"><span class="pl-pds">'</span>./views/mainView<span class="pl-pds">'</span></span>);
+
+<span class="pl-s">var</span> views <span class="pl-k">=</span> [
+    {
+        name<span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">'</span>main<span class="pl-pds">'</span></span>,
+        ref<span class="pl-k">:</span> mainView
+    }
+];
+aero.controller.init(views);</pre></div>
+
+<h3>
+<a id="finally-show-the-view-to-the-browser" class="anchor" href="#finally-show-the-view-to-the-browser" aria-hidden="true"><span class="octicon octicon-link"></span></a>Finally, show the view to the browser</h3>
+
+<div class="highlight highlight-javascript"><pre>aero.controller.showView(<span class="pl-s1"><span class="pl-pds">'</span>main<span class="pl-pds">'</span></span>);</pre></div>
+
+<h1>
+<a id="getting-started-global-aero" class="anchor" href="#getting-started-global-aero" aria-hidden="true"><span class="octicon octicon-link"></span></a>Getting started (Global aero)</h1>
 
 <h3>
 <a id="include-aerojs-and-its-dependencies-zeptojs-and-lodashjs-to-your-indexhtml-file" class="anchor" href="#include-aerojs-and-its-dependencies-zeptojs-and-lodashjs-to-your-indexhtml-file" aria-hidden="true"><span class="octicon octicon-link"></span></a>Include aero.js and its dependencies (zepto.js and lodash.js) to your index.html file</h3>
@@ -103,7 +159,7 @@
 </blockquote>
 
 <h3>
-<a id="finally-show-the-view-to-the-browser" class="anchor" href="#finally-show-the-view-to-the-browser" aria-hidden="true"><span class="octicon octicon-link"></span></a>Finally, show the view to the browser</h3>
+<a id="finally-show-the-view-to-the-browser-1" class="anchor" href="#finally-show-the-view-to-the-browser-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Finally, show the view to the browser</h3>
 
 <div class="highlight highlight-javascript"><pre><span class="pl-s3">window</span>.aero.controller.showView(<span class="pl-s1"><span class="pl-pds">'</span>main<span class="pl-pds">'</span></span>);</pre></div>
 
