@@ -9,7 +9,7 @@ Aero.js (v1.0.1)
 
 To install Aero.js :
 - bower install aero.js
-- npm install aero.js (commonJS module)
+- npm install aero.js (commonJS module to use with browserify)
 
 To see how it works just run the samples.
 You can find documentation <a href="http://teabow.github.io/aero.js">here</a>.
