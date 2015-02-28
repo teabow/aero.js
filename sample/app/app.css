@@ -1,0 +1,22 @@
+body {
+  font-family: helvetica, sans-serif;
+  margin: 0; }
+  body header {
+    background-color: #009ecd;
+    color: #fff;
+    padding: 20px; }
+  body div.container {
+    padding: 20px; }
+    body div.container button {
+      background-color: #dcdcdc;
+      border: none;
+      margin-right: 8px;
+      padding: 8px; }
+  body footer {
+    background-color: #f1f1f1;
+    border-top: 1px solid #dcdcdc;
+    position: absolute;
+    bottom: 0;
+      left: 0;
+    padding: 20px;
+    width: 100%; }
