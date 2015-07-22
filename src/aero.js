@@ -1,4 +1,4 @@
-//     Aero.js 1.0.0
+//     Aero.js 1.1.0
 //     (c) 2014 Thibaud Bourgeois
 //     Aero.js may be freely distributed under the MIT license.
 //     For documentation please refer to :
@@ -73,6 +73,43 @@
                     return false;
                 });
             }
+        },
+
+        /**
+         * Adds a touch event to the view
+         * @param selector the node selector
+         * @param handler the handler function to implement
+         */
+        addTouchEvent: function (selector, handler) {
+            var self = this;
+            var time = 0;
+            var _x1, _y1, _x2, _y2, touch;
+            $(selector).off('touchstart').off('touchend');
+            $(selector).on('touchstart', function (e) {
+                time = new Date().getTime();
+                touch = (e.changedTouches || e.originalEvent.changedTouches)[0];
+                _x1 = touch.pageX;
+                _y1 = touch.pageY;
+            });
+            $(selector).on('touchend', function (e) {
+                touch = (e.changedTouches || e.originalEvent.changedTouches)[0];
+                _x2 = touch.pageX;
+                _y2 = touch.pageY;
+                var diff = new Date().getTime() - time;
+                var diffX = Math.abs(_x2 - _x1);
+                var diffY = Math.abs(_y2 - _y1);
+
+                self.pageX = _x2;
+                self.pageY = _y2;
+
+                if (isNaN(diffX) || isNaN(diffY)) {
+                    return false;
+                }
+                if (diff < 1000 && diffX < 8 && diffY < 8) {
+                    handler.call(self, e.currentTarget);
+                }
+                return false;
+            });
         },
 
         /**
