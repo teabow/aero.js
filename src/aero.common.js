@@ -1,4 +1,4 @@
-//     Aero.js 1.2.0
+//     Aero.js 1.2.1
 //     (c) 2015 Thibaud Bourgeois
 //     Aero.js may be freely distributed under the MIT license.
 //     For documentation please refer to :
@@ -26,7 +26,7 @@ aero.view = {
      */
     render: function (containerSelector, templateUrl, data) {
         aero.templateManager.get(templateUrl, function (template) {
-            $(containerSelector).html(_.template(template, data));
+            $(containerSelector).html(_.template(template)(data));
         });
     },
 
@@ -44,7 +44,7 @@ aero.view = {
                 if (iterator) {
                     iterator(dataArray[i]);
                 }
-                tmp += _.template(template, dataArray[i]);
+                tmp += _.template(template)(dataArray[i]);
             }
             $(containerSelector).html(tmp);
         });
