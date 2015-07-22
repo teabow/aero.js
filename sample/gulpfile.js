@@ -9,6 +9,7 @@
  * Init vars
  */
 var gulp = require('gulp');
+var fs = require('fs');
 var plugins = require('gulp-load-plugins')({lazy: false});
 var appDir = 'app',
     vendorDir = 'bower_components';
@@ -35,7 +36,11 @@ gulp.task('connect', plugins.connect.server({
  * Runs localhost server with non compiled files
  * @return {void}
  */
-gulp.task('server', function () {
+gulp.task('server', ['copyAero'], function () {
     gulp.start('connect');
     gulp.start('watch');
+});
+
+gulp.task('copyAero', function () {
+    fs.createReadStream('../src/aero.js').pipe(fs.createWriteStream('app/lib/aero.js'));
 });

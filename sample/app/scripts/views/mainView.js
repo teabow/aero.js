@@ -11,7 +11,7 @@
         container: '#content',
 
         init: function (data) {
-            this.addEvent('click button.btnHi', this.btnHiHandler);
+            this.addTouchEvent('button.btnHi', this.btnHiHandler);
             this.addEvent('click button.btnSecondPage', this.btnSecondPageHandler);
 
             // View injection

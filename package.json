@@ -5,7 +5,7 @@
     "javascript", "MVC", "library", "minimalistic"
   ],
   "author": "Thibaud Bourgeois (https://github.com/teabow/aero.js)",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "main": "src/aero.common.js",
   "license": "MIT",
   "dependencies": {
