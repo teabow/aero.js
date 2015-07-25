@@ -131,6 +131,15 @@ aero.view = {
     },
 
     /**
+     * Finds element in view container scope
+     * @param selector the element selector
+     * @returns {*} the jquery object
+     */
+    findElement: function (selector) {
+        return $(this.container).find(selector);
+    },
+
+    /**
      * Allows view inheritance
      * @param data the data to inherit from
      * @returns {Object} an extended object
@@ -223,9 +232,8 @@ Controller.prototype.preload = function () {
  * Shows the specified view
  * @param viewName the name of the view to show
  * @param data the data view to display
- * @param noHistory true if view must not be registered in location.history
  */
-Controller.prototype.showView = function (viewName, data, noHistory) {
+Controller.prototype.showView = function (viewName, data) {
     var view = null;
     for (var i = 0; i < window.aero.views.length; i++) {
         if (window.aero.views[i].name === viewName) {
@@ -234,7 +242,7 @@ Controller.prototype.showView = function (viewName, data, noHistory) {
         }
     }
 
-    if (window.history.pushState && !noHistory && !view.subView) {
+    if (window.history.pushState && !view.noHistory && !view.subView) {
         if (this.first) {
             window.history.replaceState({name: viewName, data: data}, viewName, '/#/' + viewName);
             this.first = false;

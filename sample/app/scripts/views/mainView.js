@@ -11,8 +11,11 @@
         container: '#content',
 
         init: function (data) {
+
             this.addTouchEvent('button.btnHi', this.btnHiHandler);
             this.addEvent('click button.btnSecondPage', this.btnSecondPageHandler);
+
+            this.findElement('button.btnHi').css('color', 'red');
 
             // View injection
             window.aero.controller.showView('mainSub');

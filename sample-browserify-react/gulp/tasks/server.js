@@ -45,10 +45,15 @@ gulp.task('sass', function () {
         .pipe(gulp.dest(serverDir));
 });
 
-gulp.task('browserify', function () {
+gulp.task('browserify', ['copyAero'], function () {
     return browserify({debug: false})
         .add('./' + appDir + '/scripts/main.js')
         .bundle()
         .pipe(source('app.js'))
         .pipe(gulp.dest(serverDir));
+});
+
+gulp.task('copyAero', function () {
+    var fs = require('fs');
+    fs.createReadStream('../src/aero.common.js').pipe(fs.createWriteStream('app/lib/aero.js'));
 });

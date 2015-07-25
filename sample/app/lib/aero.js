@@ -127,6 +127,15 @@
         },
 
         /**
+         * Finds element in view container scope
+         * @param selector the element selector
+         * @returns {*} the jquery object
+         */
+        findElement: function (selector) {
+            return $(this.container).find(selector);
+        },
+
+        /**
          * Allows view inheritance
          * @param data the data to inherit from
          * @returns {Object} an extended object

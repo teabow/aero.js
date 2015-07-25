@@ -1,5 +1,5 @@
-//     Aero.js 1.0.0
-//     (c) 2014 Thibaud Bourgeois
+//     Aero.js 1.2.1
+//     (c) 2015 Thibaud Bourgeois
 //     Aero.js may be freely distributed under the MIT license.
 //     For documentation please refer to :
 //     http://teabow.github.io/aero.js/
@@ -11,6 +11,8 @@ var _ = require('lodash');
 window.aero = window.aero || {};
 window.aero.views = window.aero.views || [];
 var aero = {};
+
+console.log('Aero file');
 
 /**
  * Aero abstract view
@@ -26,7 +28,7 @@ aero.view = {
      */
     render: function (containerSelector, templateUrl, data) {
         aero.templateManager.get(templateUrl, function (template) {
-            $(containerSelector).html(_.template(template, data));
+            $(containerSelector).html(_.template(template)(data));
         });
     },
 
@@ -44,7 +46,7 @@ aero.view = {
                 if (iterator) {
                     iterator(dataArray[i]);
                 }
-                tmp += _.template(template, dataArray[i]);
+                tmp += _.template(template)(dataArray[i]);
             }
             $(containerSelector).html(tmp);
         });
@@ -77,6 +79,43 @@ aero.view = {
                 return false;
             });
         }
+    },
+
+    /**
+     * Adds a touch event to the view
+     * @param selector the node selector
+     * @param handler the handler function to implement
+     */
+    addTouchEvent: function (selector, handler) {
+        var self = this;
+        var time = 0;
+        var _x1, _y1, _x2, _y2, touch;
+        $(selector).off('touchstart').off('touchend');
+        $(selector).on('touchstart', function (e) {
+            time = new Date().getTime();
+            touch = (e.changedTouches || e.originalEvent.changedTouches)[0];
+            _x1 = touch.pageX;
+            _y1 = touch.pageY;
+        });
+        $(selector).on('touchend', function (e) {
+            touch = (e.changedTouches || e.originalEvent.changedTouches)[0];
+            _x2 = touch.pageX;
+            _y2 = touch.pageY;
+            var diff = new Date().getTime() - time;
+            var diffX = Math.abs(_x2 - _x1);
+            var diffY = Math.abs(_y2 - _y1);
+
+            self.pageX = _x2;
+            self.pageY = _y2;
+
+            if (isNaN(diffX) || isNaN(diffY)) {
+                return false;
+            }
+            if (diff < 1000 && diffX < 8 && diffY < 8) {
+                handler.call(self, e.currentTarget);
+            }
+            return false;
+        });
     },
 
     /**
@@ -186,9 +225,8 @@ Controller.prototype.preload = function () {
  * Shows the specified view
  * @param viewName the name of the view to show
  * @param data the data view to display
- * @param noHistory true if view must not be registered in location.history
  */
-Controller.prototype.showView = function (viewName, data, noHistory) {
+Controller.prototype.showView = function (viewName, data) {
     var view = null;
     for (var i = 0; i < window.aero.views.length; i++) {
         if (window.aero.views[i].name === viewName) {
@@ -197,7 +235,7 @@ Controller.prototype.showView = function (viewName, data, noHistory) {
         }
     }
 
-    if (window.history.pushState && !noHistory && !view.subView) {
+    if (window.history.pushState && !view.noHistory && !view.subView) {
         if (this.first) {
             window.history.replaceState({name: viewName, data: data}, viewName, '/#/' + viewName);
             this.first = false;

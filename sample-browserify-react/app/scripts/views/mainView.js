@@ -1,6 +1,6 @@
 'use strict';
 
-var aero = require('aero.js');
+var aero = require('../../lib/aero');
 var React = require('react');
 
 var mainView = aero.view.extend ({

@@ -1,6 +1,6 @@
 'use strict';
 
-var aero = require('aero.js');
+var aero = require('../lib/aero');
 var mainView = require('./views/mainView');
 var secondView = require('./views/secondView');
 var thirdView = require('./views/thirdView');
