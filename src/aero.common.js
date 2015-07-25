@@ -1,4 +1,4 @@
-//     Aero.js 1.2.1
+//     Aero.js 1.2.2
 //     (c) 2015 Thibaud Bourgeois
 //     Aero.js may be freely distributed under the MIT license.
 //     For documentation please refer to :

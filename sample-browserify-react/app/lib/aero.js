@@ -1,4 +1,4 @@
-//     Aero.js 1.2.1
+//     Aero.js 1.2.2
 //     (c) 2015 Thibaud Bourgeois
 //     Aero.js may be freely distributed under the MIT license.
 //     For documentation please refer to :
@@ -11,8 +11,6 @@ var _ = require('lodash');
 window.aero = window.aero || {};
 window.aero.views = window.aero.views || [];
 var aero = {};
-
-console.log('Aero file');
 
 /**
  * Aero abstract view
@@ -130,6 +128,15 @@ aero.view = {
             element = key.substr(sepIndex + 1);
             $(element).off(event);
         }
+    },
+
+    /**
+     * Finds element in view container scope
+     * @param selector the element selector
+     * @returns {*} the jquery object
+     */
+    findElement: function (selector) {
+        return $(this.container).find(selector);
     },
 
     /**
