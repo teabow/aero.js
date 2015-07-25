@@ -1,4 +1,4 @@
-//     Aero.js 1.2.2
+//     Aero.js 1.2.3
 //     (c) 2015 Thibaud Bourgeois
 //     Aero.js may be freely distributed under the MIT license.
 //     For documentation please refer to :
@@ -232,8 +232,9 @@ Controller.prototype.preload = function () {
  * Shows the specified view
  * @param viewName the name of the view to show
  * @param data the data view to display
+ * @param noHistory true if view must not be registered in location.history
  */
-Controller.prototype.showView = function (viewName, data) {
+Controller.prototype.showView = function (viewName, data, noHistory) {
     var view = null;
     for (var i = 0; i < window.aero.views.length; i++) {
         if (window.aero.views[i].name === viewName) {
@@ -242,7 +243,7 @@ Controller.prototype.showView = function (viewName, data) {
         }
     }
 
-    if (window.history.pushState && !view.noHistory && !view.subView) {
+    if (window.history.pushState && !noHistory && !view.subView) {
         if (this.first) {
             window.history.replaceState({name: viewName, data: data}, viewName, '/#/' + viewName);
             this.first = false;
