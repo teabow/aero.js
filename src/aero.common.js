@@ -245,11 +245,11 @@ Controller.prototype.showView = function (viewName, data, noHistory) {
 
     if (window.history.pushState && !noHistory && !view.subView) {
         if (this.first) {
-            window.history.replaceState({name: viewName, data: data}, viewName, '/#/' + viewName);
+            window.history.replaceState({name: viewName, data: data}, viewName, window.location.href.replace('index.html', ''));
             this.first = false;
         }
         else {
-            window.history.pushState({name: viewName, data: data}, viewName, '/#/' + viewName);
+            window.history.pushState({name: viewName, data: data}, viewName, window.location.href.replace('index.html', ''));
         }
     }
 
