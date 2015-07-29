@@ -1,4 +1,4 @@
-//     Aero.js 1.2.3
+//     Aero.js 1.2.4
 //     (c) 2015 Thibaud Bourgeois
 //     Aero.js may be freely distributed under the MIT license.
 //     For documentation please refer to :
@@ -245,11 +245,11 @@ Controller.prototype.showView = function (viewName, data, noHistory) {
 
     if (window.history.pushState && !noHistory && !view.subView) {
         if (this.first) {
-            window.history.replaceState({name: viewName, data: data}, viewName, '/#/' + viewName);
+            window.history.replaceState({name: viewName, data: data}, viewName, window.location.href.replace('index.html', ''));
             this.first = false;
         }
         else {
-            window.history.pushState({name: viewName, data: data}, viewName, '/#/' + viewName);
+            window.history.pushState({name: viewName, data: data}, viewName, window.location.href.replace('index.html', ''));
         }
     }
 
