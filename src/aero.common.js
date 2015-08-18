@@ -1,4 +1,4 @@
-//     Aero.js 1.2.4
+//     Aero.js 1.2.5
 //     (c) 2015 Thibaud Bourgeois
 //     Aero.js may be freely distributed under the MIT license.
 //     For documentation please refer to :
@@ -255,7 +255,7 @@ Controller.prototype.showView = function (viewName, data, noHistory) {
 
     if (view.ref.template) {
         aero.templateManager.get(view.ref.template, function (template) {
-            $(view.ref.container).html(_.template(template, data));
+            $(view.ref.container).html(_.template(template)(data));
             if (window.aero && window.aero._initObservables) {
                 window.aero._initObservables(view.ref);
             }
