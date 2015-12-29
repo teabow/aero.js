@@ -5,7 +5,7 @@ Aero.js (v1.2.5)
 
 ### Minimalistic Javascript MVC library - Especially designed for mobile apps
 
-<b>You can use it with integretad template mechanism or with a third party UI library like React</b>
+<b>You can use it with integrated template mechanism or with a third party UI library like React</b>
 
 To install Aero.js :
 - bower install aero.js
