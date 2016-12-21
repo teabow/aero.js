@@ -1,0 +1,8 @@
+title: Aero.js
+description: Minimalistic Javascript MVC library
+google_analytics: 
+show_downloads: true
+theme: jekyll-theme-cayman
+
+gems:
+  - jekyll-mentions
