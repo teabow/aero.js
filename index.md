@@ -115,6 +115,7 @@ window.aero.controller.init(views).preload();
 window.aero.controller.showView('main');
 ```
 > You can pass a second parameter (a json object) to the showView function. Then use the `<%=key%>` notation to use passed data in your associated template
+
 ### Check the full [sample](https://github.com/teabow/aero.js/tree/master/sample) in github repository
 
 
